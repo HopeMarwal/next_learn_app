@@ -17,13 +17,13 @@ const CreatePrompt = () => {
     e.preventDefault()
     setSubmitting(true)
     try {
-      // API POST call in app/api/prompt/new
+      // API POST new prompt to db
       const res = await fetch('/api/prompt/new', {
         method: 'POST',
         body: JSON.stringify({
           prompt: post.prompt,
           userId: session?.user.id,
-          tag: prompt.tag
+          tag: post.tag
         })
       })
       if(res.ok) {
