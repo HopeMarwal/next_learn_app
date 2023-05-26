@@ -4,14 +4,14 @@ import { useState, useEffect } from "react"
 import PromptCard from "./PromptCard"
 
 //Prompt Cards wrap component
-const PromptCardList = ({ data, handleSearchChange}) => {
+const PromptCardList = ({ data, handleTagClick}) => {
   return (
     <div className="mt-16 prompt_layout">
       {data?.map((post) => (
         <PromptCard
           key={post._id}
           post={post}
-          handleTagClick={handleSearchChange}
+          handleTagClick={handleTagClick}
         />
       ))}
     </div>
@@ -19,7 +19,8 @@ const PromptCardList = ({ data, handleSearchChange}) => {
 }
 
 const Feed = () => {
-  const [searchText, setSearchText] = useState();
+  const [searchText, setSearchText] = useState('');
+  const [results, setResults] = useState(null)
   const [posts, setPosts] = useState();
 
   useEffect(() => {
@@ -33,8 +34,54 @@ const Feed = () => {
     fetchPosts()
   }, [])
 
+
   const handleSearchChange = (e) => {
+    const target = e.target.value
+    setSearchText(target)
+    console.log(target)
+
+    let filteredPosts = []
+    const regex = new RegExp(target.trim(), 'i')
+
+    // Search by Tag
+    const filteredByTag = posts.filter((p) => p.tag.split(' ').includes(target) )
+    filteredByTag?.forEach(el => filteredPosts.push(el))
+
+    // Search by prompt
+    const filteredByPrompt = posts.filter((p) => regex.test(p.prompt))
+    // Check if prompt is already in filteredPosts
+    filteredByPrompt?.forEach((el) => {
+      let newFilter = filteredPosts.filter((post) => post._id === el._id)
+      if(newFilter.length === 0) {
+        filteredPosts.push(el)
+      }
+    })
+
+    // Search by userName
+    const filteredByUser = posts.filter((post) => (
+      regex.test(post.creator.username) 
+    ))
+    // Check if prompt is already in filteredPosts
+    filteredByUser?.forEach((el) => {
+      let userFilter = filteredPosts.filter((post) => post._id === el._id)
+      if(userFilter.length === 0) {
+        filteredPosts.push(el)
+      }
+    })
+
+    setResults(filteredPosts)
+  }
+
+
+  const handleTagClick = (tag) => {
+    console.log(tag)
+    setSearchText(tag)
     
+    const filteredPosts = posts.filter((item) => (
+      item.tag.split(' ').includes(tag)
+    ))
+
+   setResults(filteredPosts)
   }
 
   return (
@@ -50,10 +97,18 @@ const Feed = () => {
         />
       </form>
 
-      <PromptCardList
-        data={posts}
-        handleSearchChange={() => {}}
-      />
+      {
+        searchText.length > 0 
+          ? <PromptCardList
+              data={results}
+              handleTagClick={handleTagClick}
+            />
+          : <PromptCardList
+              data={posts}
+              handleTagClick={handleTagClick}
+            />
+      }
+
     </section>
   )
 }

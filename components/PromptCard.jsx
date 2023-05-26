@@ -55,13 +55,21 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
         </div>
       </div>
 
+      {/* Body */}
       <p className="my-4 font-satoshi text-sm text-gray-700">{post.prompt}</p>
-      <p
-        onClick={() => handleTagClick && handleTagClick(post.tag)}
-        className="font-inter text-sm blue_gradient cursor-pointer"
-      >
-        {post.tag}
-      </p>
+      
+      {
+        post.tag.split(' ').map((tag) => (
+        <span
+          key={tag}
+          onClick={() => handleTagClick && handleTagClick(tag)}
+          className="font-inter text-sm blue_gradient cursor-pointer"
+        >
+          #{tag}{' '}
+        </span>
+        ))
+      }
+      
       {/* Display Edit & Delete btns */}
       {
         session?.user.id === post.creator._id && pathName === '/profile' && (
