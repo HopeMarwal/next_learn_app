@@ -4,14 +4,22 @@ import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
+
+
 import Form from "@components/Form";
+
 
 const CreatePrompt = () => {
   const router = useRouter()
   const { data: session } = useSession()
 
   const [submitting, setSubmitting] = useState(false);
-  const [post, setPost] = useState({ prompt: '', tag: '' })
+  const [post, setPost] = useState({ prompt: '', tag: '', img: '' })
+
+
+  const handleImg = (e) => {
+    
+  }
 
   const createPrompt = async (e) => {
     e.preventDefault()
@@ -23,7 +31,8 @@ const CreatePrompt = () => {
         body: JSON.stringify({
           prompt: post.prompt,
           userId: session?.user.id,
-          tag: post.tag
+          tag: post.tag,
+          img: post.img
         })
       })
       if(res.ok) {

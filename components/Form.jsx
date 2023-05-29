@@ -1,8 +1,32 @@
+'use client'
 import Link from "next/link"
+import { useState } from "react";
 
 const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
+
+  const [img, setImg] = useState(null);
+
+  const handleImage = async (e) => {
+    const file = e.target.files[0]
+
+    const formFile = new FormData()
+
+    formFile.append('file', file)
+    formFile.append('upload_preset', 'next_preset')
+
+    const data = await fetch('https://api.cloudinary.com/v1_1/djr5mw1np/image/upload', {
+      method: 'POST',
+      body: formFile
+    }).then(res => res.json())
+
+    setImg(data.secure_url)
+    setPost({...post, img: data.secure_url })
+  }
+  
+
   return (
     <section className="w-full max-w-full flex-start flex-col">
+
 
       <h1 className="head_text text_left">
         <span className="blue_gradient">{type} Post</span>
@@ -44,6 +68,21 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
             required
             className="form_input"
           />
+        </label>
+
+        {/* Image */}
+        <label>
+          <span className="font-satoshi font-semibold text-base text-gray-700">
+            Image{` `}
+            <span className="font-normal">...img icon...</span>
+          </span>
+          <input
+            type='file'
+            onChange={(e) => handleImage(e)}
+            required
+            className="form_input"
+          />
+          {img && <img src={img} />}
         </label>
 
         {/* Footer form */}
