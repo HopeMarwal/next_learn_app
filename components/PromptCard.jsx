@@ -27,13 +27,13 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
         
         <div className="flex-1 flex justify-start items-center gap-3 cursor-pointer">
           {/* Icon */}
-          {/* <Image
+          <Image
             src={post?.creator?.image}
             alt='user_image'
             width={40}
             height={40}
             className="rounded-full object-contain"
-          /> */}
+          />
         
           {/* User info */}
           <div className="flex flex-col">
@@ -59,10 +59,11 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
       <p className="my-4 font-satoshi text-sm text-gray-700">{post?.prompt}</p>
       {post?.img && 
         <Image 
-          width={100}
-          height={100}
+          width={526}
+          height={300}
           src={post.img}
           alt='next_image_test'
+          className="w-full"
         />
       }
      

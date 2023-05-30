@@ -34,12 +34,15 @@ const Feed = () => {
     fetchPosts()
   }, [])
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [searchText])
+
 
   const handleSearchChange = (e) => {
     const target = e.target.value
     setSearchText(target)
-    console.log(target)
-
+  
     let filteredPosts = []
     const regex = new RegExp(target.trim(), 'i')
 
@@ -74,13 +77,10 @@ const Feed = () => {
 
 
   const handleTagClick = (tag) => {
-    console.log(tag)
     setSearchText(tag)
-    
     const filteredPosts = posts.filter((item) => (
       item.tag.split(' ').includes(tag)
     ))
-
    setResults(filteredPosts)
   }
 

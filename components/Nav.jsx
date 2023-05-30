@@ -24,13 +24,13 @@ const Nav = () => {
     <nav className="flex-between w-full mb-16 pt-3">
       <Link href='/' className="flex gap-1 flex-center">
         <Image
-          src='/assets/images/logo.svg'
+          src='/assets/images/logo.png'
           alt='app logo'
           width={30}
           height={30}
           className="object-contain"
         />
-        <p className="logo_text">LogoImg</p>
+        <p className="orange_gradient font-bold">MakeYourself</p>
       </Link>
 
       {/* Desktop navigation */}
