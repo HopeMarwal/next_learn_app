@@ -127,8 +127,6 @@
 
 .prompt_layout {
   @apply space-y-6 py-8 sm:gap-6;
-  width: 80%;
-  margin: auto
 }
 
 /* Feed Component */
@@ -151,7 +149,7 @@
 }
 
 .dropdown {
-  @apply absolute right-0 top-full mt-3 w-full p-5 rounded-lg bg-white min-w-[210px] flex flex-col gap-2 justify-end items-end;
+  @apply absolute right-0 top-full mt-3 w-full p-5 rounded-lg bg-white min-w-[210px] flex flex-col gap-2 justify-end items-end dark:bg-white/10 dark:backdrop-blur;
 }
 
 .dropdown_link {

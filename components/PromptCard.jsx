@@ -45,8 +45,6 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
             alt='user_image'
             width={40}
             height={40}
-            placeholder="blur"
-            blurDataURL={post?.creator?.image}
             className="rounded-full object-contain"
           />
         
@@ -80,6 +78,8 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
           src={post.img}
           alt='next_image_test'
           className="w-full"
+          placeholder="blur"
+          blurDataURL={post.img}
         />
       }
      

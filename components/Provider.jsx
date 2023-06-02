@@ -6,7 +6,7 @@ import { ThemeProvider } from 'next-themes'
 
 const Provider = ({ children, session }) => (
     <SessionProvider session={session}>
-      <ThemeProvider>
+      <ThemeProvider attribute="class" >
         { children }
       </ThemeProvider>
     </SessionProvider>
