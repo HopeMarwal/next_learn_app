@@ -1,13 +1,17 @@
 'use client'
 
-import { useState, useEffect } from "react"
-import Image from "next/image"
+// Hooks
+import { useState } from "react"
 import { useSession } from "next-auth/react"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
+// Components
+import Image from "next/image"
 
 const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
   const { data: session } = useSession()
   const pathName = usePathname()
+  const router = useRouter()
+
   const [copied, setCopied] = useState('');
 
   const handleCopy = () => {
@@ -19,13 +23,23 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
     }, 3000);
   }
 
+  const handleProfileClick = () => {
+    console.log(post)
+    if(post.creator._id === session.user.id) {
+      return router.push('/profile')
+    }
+    router.push(`/profile/${post.creator._id}?name=${post.creator.username}`)
+  }
 
   return (
     <div className="prompt_card">
       {/* Header */}
       <div className="flex justify-between items-start gap-5">
         
-        <div className="flex-1 flex justify-start items-center gap-3 cursor-pointer">
+        <div 
+          className="flex-1 flex justify-start items-center gap-3 cursor-pointer"
+          onClick={handleProfileClick}
+        >
           {/* Icon */}
           <Image
             src={post?.creator?.image}
@@ -49,7 +63,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
             alt='icon'
             src={ copied === post?.prompt
                   ? '/assets/icons/tick.svg'
-                  : 'assets/icons/copy.svg'
+                  : '/assets/icons/copy.svg'
                 }
           />
         </div>
