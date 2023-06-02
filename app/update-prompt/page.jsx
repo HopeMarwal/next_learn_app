@@ -13,7 +13,7 @@ const EditPrompt = () => {
   const promptId = searchParams.get('id')
 
   const [submitting, setSubmitting] = useState(false);
-  const [post, setPost] = useState({ prompt: '', tag: '' })
+  const [post, setPost] = useState({ prompt: '', tag: '', img: '' })
 
   useEffect(() => {
     const getPromptDetails = async () => {
@@ -22,7 +22,8 @@ const EditPrompt = () => {
 
       setPost({
         prompt: data.prompt,
-        tag: data.tag
+        tag: data.tag,
+        img: data.img
       })
     }
 
@@ -38,11 +39,13 @@ const EditPrompt = () => {
 
     try {
       // API PATCH updated prompt to db
+      console.log(post.img)
       const res = await fetch(`/api/prompt/${promptId}`, {
         method: 'PATCH',
         body: JSON.stringify({
           prompt: post.prompt,
-          tag: post.tag
+          tag: post.tag,
+          img: post.img
         })
       })
       if(res.ok) {
