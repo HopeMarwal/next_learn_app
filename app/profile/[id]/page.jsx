@@ -8,6 +8,7 @@ import Profile from "@components/Profile"
 const UserProfile = ({ params }) => {
   const searchParams = useSearchParams()
   const userName = searchParams.get('name')
+  
   const [ posts, setPosts ] = useState();
 
   useEffect(() => {

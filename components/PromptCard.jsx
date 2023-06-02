@@ -24,7 +24,6 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
   }
 
   const handleProfileClick = () => {
-    console.log(post)
     if(post.creator._id === session.user.id) {
       return router.push('/profile')
     }
@@ -40,22 +39,24 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
           className="flex-1 flex justify-start items-center gap-3 cursor-pointer"
           onClick={handleProfileClick}
         >
-          {/* Icon */}
+          {/* User Icon */}
           <Image
             src={post?.creator?.image}
             alt='user_image'
             width={40}
             height={40}
+            placeholder="blur"
+            blurDataURL={post?.creator?.image}
             className="rounded-full object-contain"
           />
         
           {/* User info */}
           <div className="flex flex-col">
-            <h3 className="font-satoshi font-semibold text-gray-900">{post?.creator?.username}</h3>
-            <p className="font-inter text-sm text-gray-500">{post?.creator?.email}</p>
+            <h3 className="font-satoshi font-semibold text-gray-900 dark:text-gray-100">{post?.creator?.username}</h3>
+            <p className="font-inter text-sm text-gray-500 dark:text-gray-200">{post?.creator?.email}</p>
           </div>
         </div>
-        {/* Button */}
+        {/* Copy Button */}
         <div className="copy_btn" onClick={handleCopy}>
           <Image
             width={12}
@@ -70,7 +71,8 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
       </div>
 
       {/* Body */}
-      <p className="my-4 font-satoshi text-sm text-gray-700">{post?.prompt}</p>
+      <p className="my-4 font-satoshi text-sm text-gray-700 dark:text-gray-200">{post?.prompt}</p>
+
       {post?.img && 
         <Image 
           width={526}
@@ -81,7 +83,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
         />
       }
      
-      
+      {/* Tags */}
       {
         post.tag.split(' ').map((tag) => (
         <span
@@ -97,19 +99,20 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
       {/* Display Edit & Delete btns */}
       {
         session?.user.id === post?.creator._id && pathName === '/profile' && (
-          <div className="mt-5 flex-center gap-4 border-t border-gray-100 pt-3">
-            <p
-              className="font-inter text-sm green_gradient cursor-pointer"
-              onClick={handleEdit}
-            >
-              Edit
-            </p>
-            <p
-              className="font-inter text-sm orange_gradient cursor-pointer"
-              onClick={handleDelete}
-            >
-              Delete
-            </p>
+          <div className="mt-5 flex-center gap-4 border-t border-gray-100 dark:border-gray-400 pt-3">
+
+            <div onClick={handleEdit} className="dark:bg-black/50 px-2 py-1 rounded">
+              <p className="font-inter text-sm green_gradient cursor-pointer">
+                Edit
+              </p>
+            </div>
+
+            <div onClick={handleDelete} className="dark:bg-black/50 px-2 py-1 rounded">
+              <p className="font-inter text-sm orange_gradient cursor-pointer">
+                Delete
+              </p>
+            </div>
+
           </div>
         )
       }

@@ -29,6 +29,8 @@ const Nav = () => {
           width={30}
           height={30}
           className="object-contain"
+          placeholder="blur"
+          blurDataURL="/assets/images/logo.png"
         />
         <p className="orange_gradient font-bold">MakeYourself</p>
       </Link>

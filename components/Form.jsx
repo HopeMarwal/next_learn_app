@@ -43,7 +43,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
       >
         {/* Textarea */}
         <label>
-          <span className="font-satoshi font-semibold text-base text-gray-700">
+          <span className="font-satoshi font-semibold text-base text-gray-700 dark:text-gray-100">
             Your AI Prompt
           </span>
           <textarea
@@ -57,7 +57,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
 
         {/* Tag */}
         <label>
-          <span className="font-satoshi font-semibold text-base text-gray-700">
+          <span className="font-satoshi font-semibold text-base text-gray-700 dark:text-gray-100">
             Tag{` `}
             <span className="font-normal">(#product, #idea)</span>
           </span>
@@ -72,7 +72,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
 
         {/* Image */}
         <label>
-          <span className="font-satoshi font-semibold text-base text-gray-700">
+          <span className="font-satoshi font-semibold text-base text-gray-700 dark:text-gray-100">
             Image{` `}
             <span className="font-normal">...img icon...</span>
           </span>
@@ -87,7 +87,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
 
         {/* Footer form */}
         <div className='flex-end mx-3 mb-5 gap-4'>
-          <Link href='/' className='text-gray-500 text-sm'>
+          <Link href='/' className='text-gray-500 text-sm dark:text-gray-100'>
             Cancel
           </Link>
 
