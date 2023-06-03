@@ -84,7 +84,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit, isResOk }) => {
             onChange={(e) => handleImage(e)}
             className="hidden"
           />
-          {img || post.img && 
+          {(img || post.img) && 
             <Image 
               src={img || post.img} 
               alt='user_uploaded_image'

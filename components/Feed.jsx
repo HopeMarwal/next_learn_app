@@ -28,6 +28,7 @@ const Feed = () => {
     const fetchPosts = async () => {
       const res = await fetch('/api/prompt')
       const data = await res.json()
+
       console.log('data updated on feed page')
       console.log(data)
       
@@ -77,7 +78,6 @@ const Feed = () => {
     setResults(filteredPosts)
   }
 
-
   const handleTagClick = (tag) => {
     setSearchText(tag)
     const filteredPosts = posts.filter((item) => (
@@ -99,17 +99,17 @@ const Feed = () => {
         />
       </form>
 
-      {
-        searchText.length > 0 
-          ? <PromptCardList
-              data={results}
-              handleTagClick={handleTagClick}
-            />
-          : <PromptCardList
-              data={posts}
-              handleTagClick={handleTagClick}
-            />
-      }
+      {searchText ? (
+        <PromptCardList
+          data={results}
+          handleTagClick={handleTagClick}
+        />
+      ): (
+        <PromptCardList
+          data={posts}
+          handleTagClick={handleTagClick}
+        />
+      )}
 
     </section>
   )
