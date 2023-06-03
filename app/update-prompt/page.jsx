@@ -13,6 +13,7 @@ const EditPrompt = () => {
   const promptId = searchParams.get('id')
 
   const [submitting, setSubmitting] = useState(false);
+  const [isPostUpdated, setIsPostUpdated] = useState(false)
   const [post, setPost] = useState({ prompt: '', tag: '', img: '' })
 
   useEffect(() => {
@@ -39,7 +40,6 @@ const EditPrompt = () => {
 
     try {
       // API PATCH updated prompt to db
-      console.log(post.img)
       const res = await fetch(`/api/prompt/${promptId}`, {
         method: 'PATCH',
         body: JSON.stringify({
@@ -49,7 +49,12 @@ const EditPrompt = () => {
         })
       })
       if(res.ok) {
-        router.push('/')
+        // Alert msg
+        setIsPostUpdated(true)
+        setTimeout(() => {
+          router.push('/')
+        }, 2000);
+       
       }
     } catch (error) {
       console.log(error)
@@ -65,6 +70,7 @@ const EditPrompt = () => {
       setPost={setPost}
       submitting={submitting}
       handleSubmit={updatePrompt}
+      isResOk={isPostUpdated}
     />
   )
 }

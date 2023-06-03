@@ -3,7 +3,7 @@ import Link from "next/link"
 import { useState } from "react";
 import Image from "next/image";
 
-const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
+const Form = ({ type, post, setPost, submitting, handleSubmit, isResOk }) => {
 
   const [img, setImg] = useState(null);
 
@@ -82,12 +82,11 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           <input
             type='file'
             onChange={(e) => handleImage(e)}
-            required
             className="hidden"
           />
-          {img && 
+          {img || post.img && 
             <Image 
-              src={img} 
+              src={img || post.img} 
               alt='user_uploaded_image'
               width={150}
               height={100}
@@ -98,6 +97,12 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
 
         {/* Footer form */}
         <div className='flex-end mx-3 mb-5 gap-4'>
+          {isResOk && 
+            <div className="text-green-600 text-sm">
+              The post was successfully {type.toLowerCase()}ed
+            </div>
+          }
+          
           <Link href='/' className='text-gray-500 text-sm dark:text-gray-100'>
             Cancel
           </Link>

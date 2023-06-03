@@ -14,6 +14,7 @@ const CreatePrompt = () => {
   const { data: session } = useSession()
 
   const [submitting, setSubmitting] = useState(false);
+  const [isPostCreated, setIsPostCreated] = useState(false)
   const [post, setPost] = useState({ prompt: '', tag: '', img: '' })
 
 
@@ -36,7 +37,11 @@ const CreatePrompt = () => {
         })
       })
       if(res.ok) {
-        router.push('/')
+        //Alert success
+        setIsPostCreated(true)
+        setTimeout(() => {
+          router.push('/')
+        }, 2000);
       }
     } catch (error) {
       console.log(error)
@@ -52,6 +57,7 @@ const CreatePrompt = () => {
       setPost={setPost}
       submitting={submitting}
       handleSubmit={createPrompt}
+      isResOk={isPostCreated}
     />
   )
 }
