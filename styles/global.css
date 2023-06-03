@@ -114,7 +114,7 @@
 }
 
 .search_input {
-  @apply block w-full rounded-md border border-gray-200 bg-white py-2.5 font-satoshi pl-5 pr-12 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0 dark:bg-gray-200 dark:opacity-70 focus:dark:border-gray-500;
+  @apply block w-full rounded-md border border-gray-200 bg-white py-2.5 font-satoshi pl-5 pr-12 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0 dark:bg-gray-200 dark:opacity-70 focus:dark:border-gray-500 dark:text-gray-900;
 }
 
 .copy_btn {
