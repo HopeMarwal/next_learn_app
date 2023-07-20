@@ -3,5 +3,112 @@
     "title": "Ai nevoie de o consultatie?",
     "desc": "Lasă numele și numărul tău de telefon, iar noi te vom contacta în cel mai scurt timp posibil.",
     "btnValue": "Trimite"
-  }
+  },
+  "oferte": [
+    {
+      "img": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689870270/IMG_ccjiiw.png",
+      "title": "Asigură-ți locuința atunci când pleci în vacanță!",
+      "desc": "Asigură-ți locuința atunci când pleci în vacanță!",
+      "id": 1,
+      "link": "Vezi mai mult"
+    },
+    {
+      "img": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689870270/IMG_2_uc0goj.png",
+      "title": "Asigură-ți locuința atunci când pleci în vacanță!",
+      "desc": "Asigură-ți locuința atunci când pleci în vacanță!",
+      "id": 2,
+      "link": "Vezi mai mult"
+    },
+    {
+      "img": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689870270/IMG_1_p1rxvq.png",
+      "title": "Asigură-ți locuința atunci când pleci în vacanță!",
+      "desc": "Asigură-ți locuința atunci când pleci în vacanță!",
+      "id": 3,
+      "link": "Vezi mai mult"
+    }
+  ],
+  "testimonials" : [
+    {
+      "name": "Vasile Moraru",
+      "photo": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689871139/Photo_fnet73.png",
+      "rating": 4,
+      "text": "Am fost implicat recent intr-un accident rutier. Am fost despagubit in timp. Personal foarte amabil. Recomand cu incredere!",
+      "id": 1
+    },
+    {
+      "name": "Vasile Moraru",
+      "photo": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689871139/Photo_1_dg2orx.png",
+      "rating": 4,
+      "text": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
+      "id": 2
+    },
+    {
+      "name": "Valeria Ivanov",
+      "photo": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689871139/Photo_2_vcpndm.png",
+      "rating": 5,
+      "text": "consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue",
+      "id": 3
+    },
+    {
+      "name": "Vasile Moraru",
+      "photo": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689871139/Photo_3_qtcumw.png",
+      "rating": 4,
+      "text": "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi.",
+      "id": 4
+    },
+    {
+      "name": "Cody Fisher",
+      "photo": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689871139/Photo_4_lukmjx.png",
+      "rating": 4,
+      "text": "Am fost implicat recent intr-un accident rutier. Am fost despagubit in timp. Personal foarte amabil. Recomand cu incredere!",
+      "id": 5
+    },
+    {
+      "name": "Darlene Robertson",
+      "photo": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689871140/Photo_5_o1pjae.png",
+      "rating": 4,
+      "text": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
+      "id": 6
+    },{
+      "name": "Theresa Webb",
+      "photo": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689871140/Photo_6_ucbsum.png",
+      "rating": 5,
+      "text": "consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue",
+      "id": 7
+    },
+    {
+      "name": "Albert Flores",
+      "photo": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689871140/Photo_7_z82he1.png",
+      "rating": 4,
+      "text": "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi.",
+      "id": 8
+    },
+    {
+      "name": "Ronald Richards",
+      "photo": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689871140/Photo_8_egr1ls.png",
+      "rating": 4,
+      "text": "Am fost implicat recent intr-un accident rutier. Am fost despagubit in timp.Personal foarte amabil. Recomand cu incredere!",
+      "id": 9
+    },{
+      "name": "Floyd Miles",
+      "photo": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689871141/Photo_9_ru0xkr.png",
+      "rating": 4,
+      "text": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
+      "id": 10
+    },
+    {
+      "name": "Annette Black",
+      "photo": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689871142/Photo_11_e2x1r7.png",
+      "rating": 5,
+      "text": "consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue",
+      "id": 11
+    },
+    {
+      "name": "Ralph Edwards",
+      "photo": "https://res.cloudinary.com/djr5mw1np/image/upload/v1689871143/Photo_10_lc8jzt.png",
+      "rating": 4,
+      "text": "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi.",
+      "id": 12
+    }
+  ]
 }
